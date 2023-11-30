@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  portainer:
+    env_file:
+      - ./portainer.env
+    platform: ${PLATFORM}
+    image: portainer/portainer-ce:2.19.3-alpine
+    ports:
+      - ${HTTPS_PORT_PORTAINER}:9443
+      - ${HTTP_PORT_PORTAINER}:9000
+    volumes:
+      - portainer-ui-data:/data
+      - ${DOCKER_SOCK_PATH}:/var/run/docker.sock
+    restart: unless-stopped
+
+volumes:
+  portainer-ui-data:
+
+
+#image: portainer/portainer-ee:linux-arm64-2.19.0-alpine 
