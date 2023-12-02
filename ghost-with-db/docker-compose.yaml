@@ -1,7 +1,7 @@
 version: '3.1'
 
 services:
-
+  #Test comment update stack
   ghost:
     image: ghost:latest
     restart: always
