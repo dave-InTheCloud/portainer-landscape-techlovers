@@ -5,10 +5,14 @@ services:
   ghost:
     image: ghost:latest
     restart: always
+    env_file:
+      - .env
     ports:
       - ${ghost_http_port}:2368
     volumes:
       - ghost-data:/var/lib/ghost/content 
+    depends_on:
+      - db
     environment:
       # see https://ghost.org/docs/config/#configuration-options
       database__client: ${ghost_database__client}
@@ -25,6 +29,8 @@ services:
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
     restart: always
+    env_file:
+      - .env
     volumes:
       - mysql-ghost-data:/var/lib/mysql
     environment:
