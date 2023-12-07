@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   portainer:
-    platform: ${PLATFORM}
+    #platform: ${PLATFORM}
     image: portainer/portainer-ce:2.19.3-alpine
     ports:
       - ${HTTPS_PORT_PORTAINER}:9443

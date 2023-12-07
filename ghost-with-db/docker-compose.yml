@@ -3,6 +3,7 @@ version: '3.1'
 services:
   #Test comment update stack
   ghost:
+    #platform: ${PLATFORM}
     image: ghost:latest
     restart: always
     ports:
